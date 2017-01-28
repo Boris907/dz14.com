@@ -12,15 +12,27 @@ try {
     $pdo = null;
 }
 
-$sql = "SELECT  title , long_text FROM " . $type . " WHERE id = " . $id;
+
+$sql = "SELECT  id, title , long_text FROM " . $type . " WHERE id = " . $id;
 $result = $pdo->query($sql);
+
 
 $title = '';
 $longText = '';
 
 foreach ($result as $publication) {
+    //var_dump($publication);
     $title .= $publication['title'];
     $longText .= $publication['long_text'];
+}
+
+try {
+    if ($result->rowCount() == 0) {
+        throw New Exception("There is no such publication");
+    }
+}catch(Exception $e){
+    $title = $e->getMessage();
+    $longText = "Sorry";
 }
 ?>
 
@@ -57,7 +69,7 @@ foreach ($result as $publication) {
                 </div>
             </div>
             <a class="btn btn-primary" href="index.php" role="button">Home</a>
+        </div>
     </div>
-</div>
 </body>
 </html>
