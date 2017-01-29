@@ -2,6 +2,11 @@
 $id = $_GET['id'];
 $type = $_GET['type'];
 
+if ($type != 'articles' && $type != 'news'){
+    $type = 'articles';
+    $id = 0;
+}
+
 try {
 
     $pdo = new PDO("mysql:dbname=news_blog;host=localhost", "root", "");
