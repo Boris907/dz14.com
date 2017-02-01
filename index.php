@@ -18,9 +18,14 @@ try {
 $writerArticle = new PublicationsWriter("articles", $pdo);
 $writerNews = new PublicationsWriter("news", $pdo);
 
+
 /*echo "<pre>";
 echo($writerArticle);
-echo "</pre>";*/
+echo "</pre>";
+
+
+
+*/
 
 ?>
 
@@ -47,7 +52,8 @@ echo "</pre>";*/
         <div class="col-lg-6">
             <h1>Articles</h1>
             <br>
-           <?php echo $writerArticle; ?>
+            <?php echo $writerArticle; ?>
+
         </div>
         <div class="col-lg-6">
             <h1>News</h1>

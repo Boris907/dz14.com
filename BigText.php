@@ -26,7 +26,6 @@ $title = '';
 $longText = '';
 
 foreach ($result as $publication) {
-    //var_dump($publication);
     $title .= $publication['title'];
     $longText .= $publication['long_text'];
 }
